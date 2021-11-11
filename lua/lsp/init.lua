@@ -46,6 +46,18 @@ require'lspconfig'.vimls.setup{
 require'lspconfig'.dartls.setup{
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
+
+local root_pattern = nvim_lsp.util.root_pattern(".git", "go.mod")
+
+-- try not to use gopls on gophers/go
+function root_dir(fname)
+  if fname:find("/gitlab.myteksi.net/gophers/go/") then
+    return vim.fn.getcwd()
+  else
+    return root_pattern(fname)
+  end
+end
+
 require'lspconfig'.gopls.setup{
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
   cmd = {"gopls", "--remote=auto"},
@@ -57,4 +69,5 @@ require'lspconfig'.gopls.setup{
       staticcheck = true,
     },
   },
+  root_dir = root_dir,
 }

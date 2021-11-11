@@ -57,5 +57,6 @@ end
 
 vim.cmd 'au TextYankPost * silent! lua vim.highlight.on_yank()'
 
+vim.api.nvim_set_var('rooter_manual_only', 1)
 -- vim.api.nvim_set_var('gutentags_trace', 1)
 vim.api.nvim_set_var('mapleader', ';')
