@@ -29,7 +29,7 @@ vim.opt.listchars = { tab = ">>>", trail = "·", precedes = "←", extends = "�
 -- Buffer
 vim.opt.fileformat = 'unix'
 vim.opt.tabstop = 2
-vim.opt.spelllang = 'it'
+vim.opt.spelllang = 'en'
 vim.opt.softtabstop = 2
 vim.opt.swapfile = false
 vim.opt.undofile = false
@@ -57,6 +57,5 @@ end
 
 vim.cmd 'au TextYankPost * silent! lua vim.highlight.on_yank()'
 
-vim.api.nvim_set_var('rooter_manual_only', 1)
 -- vim.api.nvim_set_var('gutentags_trace', 1)
 vim.api.nvim_set_var('mapleader', ';')
