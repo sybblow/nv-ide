@@ -51,8 +51,14 @@ local root_pattern = nvim_lsp.util.root_pattern(".git", "go.mod")
 
 -- try not to use gopls on gophers/go
 function root_dir(fname)
-  if fname:find("/gitlab.myteksi.net/gophers/go/") then
-    return vim.fn.getcwd()
+  if fname:find("/gitlab.myteksi.net/gophers/go/", 1, true) then
+    local cwd = vim.fn.getcwd()
+    if fname:len() > cwd:len() and fname:sub(1, cwd:len()) == cwd then
+      -- fname is under cwd
+      return cwd
+    else
+      return nvim_lsp.util.path.dirname(fname)
+    end
   else
     return root_pattern(fname)
   end
