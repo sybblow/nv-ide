@@ -10,6 +10,7 @@ vim.api.nvim_set_keymap('n', '<leader>nm', ':Dispatch npm start<CR>', {noremap =
 vim.api.nvim_set_keymap('n', '<leader>bda', ':BufferCloseAllButCurrent<CR>', {noremap = false, silent = false})
 vim.api.nvim_set_keymap('n', '<leader>bn', ':BufferNext<CR>', {noremap = false, silent = false})
 vim.api.nvim_set_keymap('n', '<leader>bp', ':BufferPrevious<CR>', {noremap = false, silent = false})
+vim.api.nvim_set_keymap('n', '<leader>B', ':e #<CR>', {noremap = false, silent = false})
 -- Git
 vim.api.nvim_set_keymap('n', '<leader>gf', ':20G<CR>', {noremap = false, silent = false})
 vim.api.nvim_set_keymap('n', '<leader>gg', ':LazyGit<CR>', {noremap = false, silent = false})
