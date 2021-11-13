@@ -57,5 +57,23 @@ end
 
 vim.cmd 'au TextYankPost * silent! lua vim.highlight.on_yank()'
 
+-- Highlighting symbol under cursor
+vim.cmd([[autocmd ColorScheme  * :highlight LspReferenceRead ctermbg=0]])
+vim.cmd([[autocmd CursorHold   * lua vim.lsp.buf.document_highlight()]])
+vim.cmd([[autocmd CursorHoldI  * lua vim.lsp.buf.document_highlight()]])
+vim.cmd([[autocmd CursorMoved  * lua vim.lsp.buf.clear_references()]])
+vim.cmd([[autocmd CursorMovedI * lua vim.lsp.buf.clear_references()]])
+
 -- vim.api.nvim_set_var('gutentags_trace', 1)
 vim.api.nvim_set_var('mapleader', ';')
+
+-- copy vimrc
+vim.cmd [[
+" Command Key Copy/Paste
+" use command + c
+vnoremap <silent> <F12> "+y
+" Yank file name / path of current buffer in Vim
+noremap <silent> <F11> :let @+=expand("%")<CR>
+" Git push to upstream automatically: https://github.com/tpope/vim-fugitive/issues/1272
+nnoremap <silent> <Leader>gp :Git -c push.default=current push<CR>
+]]

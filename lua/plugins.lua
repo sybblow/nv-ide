@@ -77,7 +77,7 @@ return require('packer').startup(function(use)
 
   -- Color
   use 'crivotz/nvim-colorizer.lua'
-  use 'lpinilla/vim-codepainter'
+  --use 'lpinilla/vim-codepainter'
 
   -- Git
   use { 'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'} }
