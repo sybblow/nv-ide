@@ -32,7 +32,6 @@ cmp.setup({
     { name = 'path' },
     { name = 'calc' },
     { name = 'treesitter' },
-    { name = 'tags' },
   },
   formatting = {
     format = function(entry, vim_item)
